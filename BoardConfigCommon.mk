@@ -41,6 +41,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
 BOARD_USES_QCOM_HARDWARE := true
 
+# Selects UM_4_19_LEGACY_FAMILY in hardware/qcom-caf/common, so sdm660 uses
+# the 4.19 hardware/qcom-caf/sdm660 HALs instead of the 4.4 msm8998 ones.
+TARGET_ENFORCES_QSSI := true
+
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
@@ -74,15 +78,16 @@ TARGET_FS_CONFIG_GEN += \
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
-BOARD_KERNEL_CMDLINE += sched_enable_hmp=1 sched_enable_power_aware=1
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.veritymode=eio
+BOARD_KERNEL_CMDLINE += printk.devkmsg=on
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8998
+TARGET_KERNEL_SOURCE := kernel/motorola/sdm660
+TARGET_KERNEL_CLANG_VERSION := r614150
 
 ifeq ($(TARGET_NEEDS_LEGACY_VERITY_SIGNING),true)
 BUILD_BROKEN_DUP_RULES := true
