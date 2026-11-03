@@ -35,3 +35,6 @@ genfscon sysfs /devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.q
 genfscon proc /bootinfo                                u:object_r:vendor_proc_moto_boot:s0
 genfscon proc /config                                  u:object_r:vendor_proc_hw:s0
 genfscon proc /hw                                      u:object_r:vendor_proc_hw:s0
+
+# Kernel 4.19 names the rmtfs shared memory node soc:qcom,rmtfs_sharedmem@0
+genfscon sysfs /devices/platform/soc/soc:qcom,rmtfs_sharedmem@0/uio    u:object_r:sysfs_uio_file:s0
