@@ -26,9 +26,11 @@ from extract_utils.main import (
 namespace_imports = [
         'device/motorola/sdm660-common',
         'hardware/motorola',
-        'hardware/qcom-caf/msm8998',
+        'hardware/qcom-caf/sdm660',
         'hardware/qcom-caf/wlan',
+        'vendor/qcom/opensource/commonsys/display',
         'vendor/qcom/opensource/dataservices',
+        'vendor/qcom/opensource/display',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
