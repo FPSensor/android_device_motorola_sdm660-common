@@ -1,2 +1,6 @@
 r_dir_file(kernel, debugfs_wlan)
 allow kernel self:socket create;
+
+# The utags driver loads and stores the utags partitions from a kworker
+allow kernel block_device:dir search;
+allow kernel utags_block_device:blk_file rw_file_perms;

@@ -27,3 +27,14 @@ type sysfs_healthd, fs_type, sysfs_type, mlstrustedobject;
 
 #rfs files
 type rfs_tombstone_data_file, data_file_type, file_type;
+
+# Motorola utags (/proc/config, /proc/hw) and bootinfo, same labels as
+# hardware/motorola
+type vendor_proc_hw, fs_type, proc_type;
+type vendor_proc_moto_boot, fs_type, proc_type;
+
+# Motorola utags partitions (read and written by the utags driver)
+type utags_block_device, dev_type;
+
+# init writes /proc/config/reload and /proc/hw/reload
+allow { vendor_proc_hw vendor_proc_moto_boot } proc:filesystem associate;
