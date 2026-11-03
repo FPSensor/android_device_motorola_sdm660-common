@@ -233,7 +233,6 @@ vendor/lib/egl/libq3dtools_esx.so;DISABLE_CHECKELF|1629bfb052e97c88c6a59d1888b16
 vendor/lib/libC2D2.so|54eb3a8f15ed9cc7d1c815dc4125612052bbb4de
 vendor/lib/libCB.so;DISABLE_CHECKELF|999a06d3a377ec9a56fc0686a7a4929533c5a7ce
 vendor/lib/libOpenCL.so|bdeec9074807de44856cd573b84ab72089202c31
-vendor/lib/hw/vulkan.sdm660.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/libadreno_utils.so|6c4e73e6090d302c3a4dcb66f4ef60a1d7468f95
 vendor/lib/libbccQTI.so
@@ -263,7 +262,6 @@ vendor/lib64/egl/libq3dtools_esx.so;DISABLE_CHECKELF|16c2adfce7ca146f9011b4cfcc4
 vendor/lib64/libC2D2.so|851d2be28766ba0a3324c6d8211ea04aa4be319f
 vendor/lib64/libCB.so;DISABLE_CHECKELF|53c5cdc9ae00348379f980fa20c9db0456a3d87c
 vendor/lib64/libOpenCL.so|646a1d784073d5f4c71e5e4b158686ed307e4531
-vendor/lib64/hw/vulkan.sdm660.so
 vendor/lib64/libRSDriver_adreno.so
 vendor/lib64/libadreno_utils.so|af1521fc558947c2d303a31aa26d5eed1476ba54
 vendor/lib64/libbccQTI.so
