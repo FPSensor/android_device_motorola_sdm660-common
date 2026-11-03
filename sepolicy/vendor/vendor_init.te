@@ -24,6 +24,10 @@ allow vendor_init system_fps_data_file:dir create_dir_perms;
 
 allow vendor_init persist_debug_prop:file read;
 
+# Save the previous boot pstore records (console, pmsg, panic dmesg)
+allow vendor_init pstorefs:dir r_dir_perms;
+allow vendor_init pstorefs:file r_file_perms;
+
 # Load utags once the block devices exist
 allow vendor_init vendor_proc_hw:dir r_dir_perms;
 allow vendor_init vendor_proc_hw:file rw_file_perms;
