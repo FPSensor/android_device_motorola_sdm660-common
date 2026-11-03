@@ -105,6 +105,10 @@ on fs
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
+    # Kernel 4.19 exposes eMMC RPMB as the char device /dev/mmcblk0rpmb,
+    # but the stock qseecomd only looks for /dev/block/mmcblk0rpmb.
+    symlink /dev/mmcblk0rpmb /dev/block/mmcblk0rpmb
+    restorecon /dev/block/mmcblk0rpmb
     # Change permission for fingerprint sensor
     chown system oem_5004 /sys/devices/platform/soc/soc:fpc_fpc1020/nav
     chown system oem_5004 /sys/devices/platform/soc/soc:fpc_fpc1020/dev_enable
