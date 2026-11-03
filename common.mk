@@ -318,8 +318,10 @@ PRODUCT_BOOT_JARS += \
     telephony-ext
 
 # Thermal
+# thermal-engine does the mitigation; the AOSP example HAL only reports
+# temperatures to the framework.
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.1-service.msm8998
+    com.android.hardware.thermal
 
 # USB
 PRODUCT_PACKAGES += \
@@ -330,9 +332,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/usb/etc
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+$(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # Wifi
 PRODUCT_COPY_FILES += \
