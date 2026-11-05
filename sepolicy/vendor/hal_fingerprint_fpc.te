@@ -40,3 +40,7 @@ allow hal_fingerprint_fpc fingerprintd_data_file:file create_file_perms;
 allow hal_fingerprint_fpc tee_device:chr_file getattr;
 
 get_prop(hal_fingerprint_fpc, vendor_fp_prop)
+
+# Kernel 4.19: the sensor is reached through /dev/fpc_soc, a link to
+# /sys/devices/platform/soc that the device init script creates.
+allow hal_fingerprint_fpc device:lnk_file read;
