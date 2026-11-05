@@ -215,6 +215,11 @@ on early-boot
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
 
 on boot
+    # Charging control for vendor.lineage.health. Kernel 4.19 only has
+    # input_suspend, which is root-only by default; without access the HAL
+    # never registers and system_server waits for it forever.
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0664 /sys/class/power_supply/battery/input_suspend
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
