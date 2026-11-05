@@ -1,0 +1,40 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// qrtr-ns and qrtr-lookup from linux-msm/qrtr v1.2 (BSD-3-Clause, see LICENSE).
+//
+// Kernel 4.19 has no in-kernel QRTR name service (added in 5.7), so the
+// userspace one has to run, otherwise no QMI service is ever announced and
+// every QMI client (sensors, radio, location, ...) blocks in its lookup.
+// libqrtr is left out: the blobs ship their own.
+
+cc_binary {
+    name: "qrtr-ns",
+    vendor: true,
+    srcs: [
+        "lib/logging.c",
+        "src/addr.c",
+        "src/ns.c",
+        "src/map.c",
+        "src/hash.c",
+        "src/waiter.c",
+        "src/util.c",
+    ],
+    cflags: ["-Wno-error"],
+    local_include_dirs: ["include", "src"],
+}
+
+cc_binary {
+    name: "qrtr-lookup",
+    vendor: true,
+    srcs: [
+        "lib/logging.c",
+        "lib/qrtr.c",
+        "src/lookup.c",
+        "src/util.c",
+    ],
+    cflags: ["-Wno-error"],
+    local_include_dirs: ["include", "src"],
+}
