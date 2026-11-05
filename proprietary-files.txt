@@ -240,14 +240,25 @@ vendor/lib/libc2d30_bltlib.so|560063f823ba59465233fd19fe23b6d3e63209c7
 vendor/lib/libgsl.so;DISABLE_CHECKELF|4bf8f91a5e3215cdf0e68e689c739a6024982380
 vendor/lib/libllvm-glnext.so|b2c39b452d975f242b19e9a945f86b4bacd8d58a
 vendor/lib/libllvm-qcom.so|0b1ab96746f8d4186f775ad5fdefe18f48dcd690
-vendor/lib/libqseed3.so
 vendor/lib/librs_adreno.so;DISABLE_CHECKELF
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libsdedrm.so
-vendor/lib/libsdm-color.so
-vendor/lib/libsdm-diag.so
-vendor/lib/libsdm-disp-vndapis.so
-vendor/lib/libtinyxml2_1.so
+# SDM pinned to Zebra/helios/helios:14/14-23-05.00-UG-U05-STD-HEL-04/5
+# (sdm660, kernel 4.19, as in pix106 lavender 15-qpr2): the Moto Pie
+# libsdmextension does not match the 4.19 SDM core (with it the composer
+# programs no layer: "Composition strategies exhausted")
+vendor/lib/libqseed3.so|87b37fefb7609474f9d1730c6c6a23c681046fe3
+vendor/lib/libsdm-color.so|408b3a458834a30ed316f50d8bb662b29f16f73e
+vendor/lib/libsdm-diag.so|a83a801ba72e7f94533ba8340f8ebe51f6d4b941
+vendor/lib/libsdm-disp-vndapis.so|16ea053728a1bf0fc6c285c8cf193dcaa9cc6ffc
+vendor/lib/libsdmextension.so|b97d77474f5991d3d038b9633c6ccfda67f3e1ec
+vendor/lib/libtinyxml2_1.so|dfe3efe3a6e5ad5beb6e4e9adb02eef475b421a7
+vendor/lib64/libqseed3.so|0a81db5fc5b762a8fd246dfccd69014662fe35eb
+vendor/lib64/libsdm-color.so|8c997688894a6373787e1eabbb62f719bbb632b4
+vendor/lib64/libsdm-diag.so|1b27bcbdba062afc1d414b30c1efcd08ac4140cf
+vendor/lib64/libsdm-disp-vndapis.so|c8408b9e8d9ee4cf82eb0c0000fb348848ff3c55
+vendor/lib64/libsdmextension.so|9a4342e9417fd7cee2eb4d34c55762c4de6811ae
+vendor/lib64/libtinyxml2_1.so|5bdb5c7785f90ad4ebaa7085a4f83d86567331f9
 vendor/lib/vendor.display.color@1.0.so
 vendor/lib/vendor.display.color@1.1.so
 vendor/lib/vendor.display.color@1.2.so
@@ -269,14 +280,9 @@ vendor/lib64/libc2d30_bltlib.so|bb495ec7d4f9617f54c6a5e9804193aabccdcee2
 vendor/lib64/libgsl.so;DISABLE_CHECKELF|84ee52e9f30d59c371dffc75827236bb832d9fb8
 vendor/lib64/libllvm-glnext.so|0eed402d2d63e6e92878162c5e7a8f0989e6ddf2
 vendor/lib64/libllvm-qcom.so|4a86fcdb10e6e18d6da438f4a7eeaffb033f44b9
-vendor/lib64/libqseed3.so
 vendor/lib64/librs_adreno.so;DISABLE_CHECKELF
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libsdedrm.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libtinyxml2_1.so
 vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
