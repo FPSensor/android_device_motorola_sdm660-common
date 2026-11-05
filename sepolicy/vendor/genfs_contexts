@@ -38,3 +38,6 @@ genfscon proc /hw                                      u:object_r:vendor_proc_hw
 
 # Kernel 4.19 names the rmtfs shared memory node soc:qcom,rmtfs_sharedmem@0
 genfscon sysfs /devices/platform/soc/soc:qcom,rmtfs_sharedmem@0/uio    u:object_r:sysfs_uio_file:s0
+
+# Kernel 4.19 on sdm630 registers the GPU zap subsystem as subsys3
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/name     u:object_r:sysfs_ssr:s0
