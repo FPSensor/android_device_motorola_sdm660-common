@@ -47,8 +47,10 @@ vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
 # Camera
-vendor/lib/libgralloc1.so
-vendor/lib/libmot_gpu_mapper.so|6e82d77ccba4938dc27790f410d04de61688c309|dad9b6f28f70d011484188c39077cf6a91cef5b5
+# libgralloc1 links the gralloc1 libgrallocutils of the 4.4 display HAL
+# (libgrallocutils_legacy, see its Android.bp)
+vendor/lib/libgralloc1.so;DISABLE_CHECKELF
+vendor/lib/libmot_gpu_mapper.so|6e82d77ccba4938dc27790f410d04de61688c309|9bc139abd1045795f5c75a12609258872480c534
 
 # CNE
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml:system_ext/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml

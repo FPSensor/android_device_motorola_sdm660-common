@@ -1,0 +1,46 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// The gralloc1 utilities of the 4.4 display HAL (hardware/qcom-caf/msm8998,
+// tag dcede86f9cd0), for Motorola's libgralloc1.so blob, which the camera
+// loads through libmot_gpu_mapper. The 4.19 libgrallocutils moved them to
+// the gralloc namespace and uses a different private_handle_t layout, so
+// this carries its own copy of the matching qdMetaData too.
+//
+// Both libgralloc1 and libmot_gpu_mapper call getMetaData/setMetaData on
+// the handles libgralloc1 allocates, so those have to reach this copy and
+// not the system libqdMetaData, which the camera HAL loads as well. They are
+// exported here as legGetMData/legSetMData (same length) and extract-files
+// renames the imports in both blobs. Everything else stays local.
+cc_library_shared {
+    name: "libgrallocutils_legacy",
+    vendor: true,
+    compile_multilib: "32",
+    srcs: [
+        "gr_adreno_info.cpp",
+        "gr_utils.cpp",
+        "qdMetaData.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.graphics.common@1.1",
+        "libcutils",
+        "libdl",
+        "liblog",
+        "libutils",
+    ],
+    header_libs: [
+        "libhardware_headers",
+        "qti_kernel_headers",
+    ],
+    cflags: [
+        "-DLOG_TAG=\"grallocutils\"",
+        "-Wno-sign-conversion",
+        "-Wno-unused-parameter",
+        "-Wno-unused-variable",
+        "-DgetMetaData=legGetMData",
+        "-DsetMetaData=legSetMData",
+    ],
+    version_script: "libgrallocutils_legacy.map.txt",
+}

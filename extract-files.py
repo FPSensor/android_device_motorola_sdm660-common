@@ -103,8 +103,16 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('libhidltransport.so', 'libhidlbase.so')
         .remove_needed('libhwbinder.so'),
+    'vendor/lib/libgralloc1.so': blob_fixup()
+        .replace_needed('libgrallocutils.so', 'libgrallocutils_legacy.so')
+        .remove_needed('libqdMetaData.so')
+        .binary_regex_replace(b'\x00getMetaData\x00', b'\x00legGetMData\x00')
+        .binary_regex_replace(b'\x00setMetaData\x00', b'\x00legSetMData\x00'),
     'vendor/lib/libmot_gpu_mapper.so': blob_fixup()
-        .add_needed('libgui_shim_vendor.so'),
+        .add_needed('libgui_shim_vendor.so')
+        .remove_needed('libqdMetaData.so')
+        .add_needed('libgrallocutils_legacy.so')
+        .binary_regex_replace(b'\x00setMetaData\x00', b'\x00legSetMData\x00'),
     'vendor/lib64/libmotext_inf.so': blob_fixup()
         .remove_needed('libril.so'),
     'vendor/lib64/libril-qc-hal-qmi.so': blob_fixup()

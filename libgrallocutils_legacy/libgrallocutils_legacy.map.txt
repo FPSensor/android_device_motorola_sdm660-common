@@ -1,0 +1,11 @@
+{
+  global:
+    extern "C++" {
+      gralloc1::*;
+    };
+    # getMetaData/setMetaData, renamed (see Android.bp)
+    legGetMData;
+    legSetMData;
+  local:
+    *;
+};
