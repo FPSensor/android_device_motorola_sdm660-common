@@ -18,6 +18,6 @@
 /dev/block/bootdevice/by-name/fsg        /vendor/fsg        ext4   ro,nosuid,nodev,context=u:object_r:fsg_firmware_file:s0   wait,slotselect
 
 # Removeable
-/devices/soc/c084000.sdhci/mmc_host*     auto               auto   defaults                                         wait,voldmanaged=sdcard1:auto,encryptable=userdata
-/devices/soc/c0a4900.sdhci/mmc_host*     auto               auto   defaults                                         wait,voldmanaged=sdcard1:auto
+/devices/platform/soc/c084000.sdhci/mmc_host*     auto               auto   defaults                                         wait,voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/soc/c0a4900.sdhci/mmc_host*     auto               auto   defaults                                         wait,voldmanaged=sdcard1:auto
 /devices/*/xhci-hcd.*.auto/usb*          auto               auto   defaults                                         voldmanaged=usb:auto
