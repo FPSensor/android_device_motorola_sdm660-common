@@ -39,6 +39,9 @@ after its 4.19 device tree node. -->
         <Config MajorValue="0x3" MinorValue="0x19" Supported="no" /> <!-- sched_initial_task_util -->
         <!-- post_boot sets it on every CPU; a perflock would only move cpu0 -->
         <Config MajorValue="0x3" MinorValue="0x1A" Supported="no" /> <!-- sched_load_boost -->
+        <!-- schedtune is replaced by uclamp -->
+        <Config MajorValue="0x3" MinorValue="0x18" Supported="no" /> <!-- schedtune.prefer_idle -->
+        <Config MajorValue="0x3" MinorValue="0x1C" Supported="no" /> <!-- schedtune.boost -->
 
         <!-- schedutil -->
         <Config MajorValue="0x5" MinorValue="0xF" Supported="yes" />
