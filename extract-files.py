@@ -82,6 +82,13 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libgui_shim.so'),
     'vendor/bin/pm-service': blob_fixup()
         .add_needed('libutils-v33.so'),
+    # Kernel 4.19 only has the rtnetlink rmnet driver; without this netmgrd
+    # loops forever trying the legacy rmnet_data netlink interface and never
+    # creates the data links.
+    'vendor/etc/data/netmgr_config.xml': blob_fixup()
+        .regex_replace('xml version="2.0"', 'xml version="1.0"')
+        .regex_replace(r'(<listitem name = "Star(?:hawk|lord)">)',
+                       r'\1\n      <data name="rtm_rmnet_data_enabled" type="int"> 1 </data>'),
     (
         'vendor/etc/data/dsi_config.xml',
         'netmgr_config.xml'
