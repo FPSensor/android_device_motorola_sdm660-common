@@ -603,8 +603,6 @@ on post-fs-data
     start vendor.dataqti
     start vendor.dataadpl
 
-    on property:persist.radio.multisim.config=dsds
-
     # Setup folders for security
     mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
     mkdir /data/vendor/dbvc 0750 oem_5004 shell
