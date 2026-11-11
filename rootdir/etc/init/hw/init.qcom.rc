@@ -599,13 +599,11 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
-    # QCRIL
-    start vendor.qcrild
+    # QCRIL (vendor.qcrild/qcrild2 are started on sys.boot_completed below)
     start vendor.dataqti
     start vendor.dataadpl
 
     on property:persist.radio.multisim.config=dsds
-    enable vendor.qcrild2
 
     # Setup folders for security
     mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
@@ -737,6 +735,15 @@ service vendor.qcomsysd /vendor/bin/qcom-system-daemon
     user root
     group root diag oem_2901
     disabled
+
+# Started from post-fs-data, qcrild comes up before the modem and never
+# brings up MMTEL voice (VoLTE); a later restart does. Start it once boot
+# has completed instead.
+on property:sys.boot_completed=1
+    start vendor.qcrild
+
+on property:sys.boot_completed=1 && property:persist.radio.multisim.config=dsds
+    start vendor.qcrild2
 
 on property:persist.vendor.qcomsysd.enabled=1
     enable qcomsysd
