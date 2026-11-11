@@ -1,0 +1,4 @@
+# Framework processes probe Moto/vendor boot properties they are not
+# allowed to read. Nothing breaks without them; keep the log quiet.
+dontaudit radio moto_boot_prop:file r_file_perms;
+dontaudit cameraserver vendor_default_prop:file r_file_perms;

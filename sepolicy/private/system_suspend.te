@@ -1,0 +1,4 @@
+# The fingerprint sensor's wakeup source sits under the fpc1020 sysfs node,
+# which is labeled sysfs_fingerprint as a whole
+allow system_suspend sysfs_fingerprint:dir r_dir_perms;
+allow system_suspend sysfs_fingerprint:file r_file_perms;

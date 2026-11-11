@@ -9,3 +9,6 @@ allow vendor_qti_init_shell system_data_file:file { getattr read };
 
 get_prop(vendor_qti_init_shell, moto_boot_prop)
 get_prop(vendor_qti_init_shell, vendor_radio_prop)
+
+# init.qcom.sh runs a bare getprop, which walks every property area
+dontaudit qti_init_shell dalvik_config_prop:file r_file_perms;
