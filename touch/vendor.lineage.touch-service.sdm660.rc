@@ -1,0 +1,4 @@
+service vendor.touch-hal-sdm660 /vendor/bin/hw/vendor.lineage.touch-service.sdm660
+    class hal
+    user system
+    group system

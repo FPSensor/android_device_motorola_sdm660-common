@@ -1,55 +1,38 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-FileCopyrightText: 2019-2026 The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
  */
-
-#include <android-base/file.h>
-#include <android-base/logging.h>
-#include <android-base/strings.h>
 
 #include "KeyDisabler.h"
 
+using ::com::fingerprints::extension::V1_0::IFingerprintNavigation;
+
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace touch {
-namespace V1_0 {
-namespace implementation {
 
-KeyDisabler::KeyDisabler() {
-    mHasKeyDisabler = false;
+KeyDisabler::KeyDisabler() : mFingerprintNavigation(IFingerprintNavigation::getService()) {}
 
-    mFingerprintNavigation = IFingerprintNavigation::getService();
-    if (mFingerprintNavigation != nullptr)
-        mHasKeyDisabler = true;
+ndk::ScopedAStatus KeyDisabler::getEnabled(bool* _aidl_return) {
+    if (mFingerprintNavigation == nullptr) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+
+    *_aidl_return = mFingerprintNavigation->isEnabled();
+    return ndk::ScopedAStatus::ok();
 }
 
-// Methods from ::vendor::lineage::touch::V1_0::IKeyDisabler follow.
-Return<bool> KeyDisabler::isEnabled() {
-    if (!mHasKeyDisabler) return false;
-
-    return mFingerprintNavigation->isEnabled();
-}
-
-Return<bool> KeyDisabler::setEnabled(bool enabled) {
-    if (!mHasKeyDisabler) return false;
+ndk::ScopedAStatus KeyDisabler::setEnabled(bool enabled) {
+    if (mFingerprintNavigation == nullptr) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
 
     mFingerprintNavigation->setNavigation(!enabled);
-    return true;
+    return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace implementation
-}  // namespace V1_0
 }  // namespace touch
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl
