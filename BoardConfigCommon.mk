@@ -22,7 +22,7 @@
 # definition file).
 #
 
-PLATFORM_PATH := device/motorola/msm8998-common
+PLATFORM_PATH := device/motorola/sdm660-common
 
 # Platform
 TARGET_ARCH := arm64
@@ -154,4 +154,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # inherit from the proprietary version
-include vendor/motorola/msm8998-common/BoardConfigVendor.mk
+include vendor/motorola/sdm660-common/BoardConfigVendor.mk

@@ -15,8 +15,8 @@
 //
 
 cc_library_static {
-    name: "libinit_msm8998",
+    name: "libinit_sdm660",
     recovery_available: true,
     shared_libs: ["libbase"],
-    srcs: ["init_msm8998.cpp"],
+    srcs: ["init_sdm660.cpp"],
 }

@@ -25,7 +25,7 @@
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
-$(call inherit-product, vendor/motorola/msm8998-common/msm8998-common-vendor.mk)
+$(call inherit-product, vendor/motorola/sdm660-common/sdm660-common-vendor.mk)
 
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
@@ -164,7 +164,7 @@ $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/etc/init/hw/*.rc),\
 $(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/bin/*.sh),\
         $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/bin/$(notdir $f)))
 
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_msm8998)
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_sdm660)
 
 # IPACM
 PRODUCT_PACKAGES += \

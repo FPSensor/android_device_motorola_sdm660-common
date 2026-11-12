@@ -24,7 +24,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-        'device/motorola/msm8998-common',
+        'device/motorola/sdm660-common',
         'hardware/motorola',
         'hardware/qcom-caf/msm8998',
         'hardware/qcom-caf/wlan',
@@ -112,7 +112,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'msm8998-common',
+    'sdm660-common',
     'motorola',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
