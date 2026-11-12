@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="fpnav_title">Fingerprint navigation</string>
+    <string name="fpnav_summary">Use the fingerprint sensor as a navigation button</string>
+    <string name="fpnav_enable_title">Use fingerprint navigation</string>
+    <string name="fpnav_intro">Tap, hold or swipe on the fingerprint sensor to navigate. The on-screen navigation keeps working.</string>
+
+    <string name="fpnav_gestures_title">Gestures</string>
+    <string name="fpnav_tap_title">Tap</string>
+    <string name="fpnav_hold_title">Touch and hold</string>
+    <string name="fpnav_swipe_left_title">Swipe left</string>
+    <string name="fpnav_swipe_right_title">Swipe right</string>
+
+    <string name="fpnav_other_title">Other</string>
+    <string name="fpnav_haptic_title">Vibrate on gesture</string>
+    <string name="fpnav_haptic_summary">Vibrate when a configured gesture runs its action</string>
+
+    <string name="fpnav_action_none">No action</string>
+    <string name="fpnav_action_home">Home</string>
+    <string name="fpnav_action_back">Back</string>
+    <string name="fpnav_action_recents">Recent apps</string>
+    <string name="fpnav_action_last_app">Last app</string>
+    <string name="fpnav_action_assistant">Assistant</string>
+    <string name="fpnav_action_notifications">Notifications</string>
+    <string name="fpnav_action_quick_settings">Quick settings</string>
+    <string name="fpnav_action_screenshot">Screenshot</string>
+    <string name="fpnav_action_flashlight">Flashlight</string>
+    <string name="fpnav_action_sleep">Turn off the screen</string>
+    <string name="fpnav_action_play_pause">Play/pause media</string>
+</resources>

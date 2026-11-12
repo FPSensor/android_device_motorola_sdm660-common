@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Must match the ACTION_* values in Constants.java -->
+    <string-array name="fpnav_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+
+    <string-array name="fpnav_action_entries">
+        <item>@string/fpnav_action_none</item>
+        <item>@string/fpnav_action_home</item>
+        <item>@string/fpnav_action_back</item>
+        <item>@string/fpnav_action_recents</item>
+        <item>@string/fpnav_action_last_app</item>
+        <item>@string/fpnav_action_assistant</item>
+        <item>@string/fpnav_action_notifications</item>
+        <item>@string/fpnav_action_quick_settings</item>
+        <item>@string/fpnav_action_screenshot</item>
+        <item>@string/fpnav_action_flashlight</item>
+        <item>@string/fpnav_action_sleep</item>
+        <item>@string/fpnav_action_play_pause</item>
+    </string-array>
+</resources>

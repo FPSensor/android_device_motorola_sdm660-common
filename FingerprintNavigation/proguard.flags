@@ -1,0 +1,5 @@
+# Loaded by PhoneWindowManager through the device key handler config
+-keep class org.lineageos.settings.fpnav.KeyHandler {
+    public <init>(android.content.Context);
+    public android.view.KeyEvent handleKeyEvent(android.view.KeyEvent);
+}

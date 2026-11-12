@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="fpnav_title">Navegación con huella</string>
+    <string name="fpnav_summary">Usar el sensor de huellas como botón de navegación</string>
+    <string name="fpnav_enable_title">Usar navegación con huella</string>
+    <string name="fpnav_intro">Tocá, mantené o deslizá sobre el sensor de huellas para navegar. La navegación en pantalla sigue funcionando.</string>
+
+    <string name="fpnav_gestures_title">Gestos</string>
+    <string name="fpnav_tap_title">Tocar</string>
+    <string name="fpnav_hold_title">Mantener presionado</string>
+    <string name="fpnav_swipe_left_title">Deslizar hacia la izquierda</string>
+    <string name="fpnav_swipe_right_title">Deslizar hacia la derecha</string>
+
+    <string name="fpnav_other_title">Otros</string>
+    <string name="fpnav_haptic_title">Vibrar con cada gesto</string>
+    <string name="fpnav_haptic_summary">Vibrar cuando un gesto configurado ejecuta su acción</string>
+
+    <string name="fpnav_action_none">Ninguna acción</string>
+    <string name="fpnav_action_home">Inicio</string>
+    <string name="fpnav_action_back">Atrás</string>
+    <string name="fpnav_action_recents">Apps recientes</string>
+    <string name="fpnav_action_last_app">Última app</string>
+    <string name="fpnav_action_assistant">Asistente</string>
+    <string name="fpnav_action_notifications">Notificaciones</string>
+    <string name="fpnav_action_quick_settings">Ajustes rápidos</string>
+    <string name="fpnav_action_screenshot">Captura de pantalla</string>
+    <string name="fpnav_action_flashlight">Linterna</string>
+    <string name="fpnav_action_sleep">Apagar la pantalla</string>
+    <string name="fpnav_action_play_pause">Reproducir/pausar</string>
+</resources>

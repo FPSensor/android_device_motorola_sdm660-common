@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="fpnav_enabled"
+        android:title="@string/fpnav_enable_title" />
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="fpnav_intro"
+        android:title="@string/fpnav_intro" />
+
+    <PreferenceCategory
+        android:key="fpnav_gestures"
+        android:title="@string/fpnav_gestures_title">
+
+        <ListPreference
+            android:key="fpnav_action_tap"
+            android:title="@string/fpnav_tap_title"
+            android:summary="%s"
+            android:entries="@array/fpnav_action_entries"
+            android:entryValues="@array/fpnav_action_values" />
+
+        <ListPreference
+            android:key="fpnav_action_hold"
+            android:title="@string/fpnav_hold_title"
+            android:summary="%s"
+            android:entries="@array/fpnav_action_entries"
+            android:entryValues="@array/fpnav_action_values" />
+
+        <ListPreference
+            android:key="fpnav_action_swipe_left"
+            android:title="@string/fpnav_swipe_left_title"
+            android:summary="%s"
+            android:entries="@array/fpnav_action_entries"
+            android:entryValues="@array/fpnav_action_values" />
+
+        <ListPreference
+            android:key="fpnav_action_swipe_right"
+            android:title="@string/fpnav_swipe_right_title"
+            android:summary="%s"
+            android:entries="@array/fpnav_action_entries"
+            android:entryValues="@array/fpnav_action_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="fpnav_other"
+        android:title="@string/fpnav_other_title">
+
+        <SwitchPreferenceCompat
+            android:key="fpnav_haptic_feedback"
+            android:title="@string/fpnav_haptic_title"
+            android:summary="@string/fpnav_haptic_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
