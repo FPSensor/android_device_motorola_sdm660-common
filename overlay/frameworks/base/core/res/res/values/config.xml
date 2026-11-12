@@ -345,4 +345,9 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
+
+    <!-- Whether a software navigation bar should be shown. The fingerprint
+         sensor is the only key besides the volume rocker, so the bar is
+         always needed. -->
+    <bool name="config_showNavigationBar">true</bool>
 </resources>
