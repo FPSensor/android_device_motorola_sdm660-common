@@ -55,7 +55,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.ims.rcsconfig@1.1',
         'vendor.qti.imsrtpservice@2.0',
         'vendor.qti.imsrtpservice@2.1',
-        'vendor.qti.imsrtpservice@2.0',
         'vendor.qti.hardware.qccsyshal@1.0',
         'vendor.qti.hardware.qccvndhal@1.0'
     ): lib_fixup_vendor_suffix,
