@@ -112,6 +112,9 @@ ro.hardware.egl=adreno
 ro.opengles.version=196610
 vendor.display.disable_scaler=1
 vendor.gralloc.enable_fb_ubwc=1
+# Kernel 4.19 SDM, as on sdm660 lavender
+debug.sdm.support_writeback=0
+vendor.display.disable_skip_validate=1
 
 # Factory reset partition
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
@@ -204,7 +207,26 @@ ro.surface_flinger.use_color_management=true
 persist.sys.usb.config.extra=none
 vendor.usb.rmnet.func.name=rmnet_bam
 vendor.usb.rmnet.inst.name=rmnet
+vendor.usb.controller=a800000.dwc3
+# Let the gadget HAL own the gadget (init.qcom.usb.rc then sets
+# sys.usb.configfs=2 and stays out), with MTP/PTP over FunctionFS.
+vendor.usb.use_gadget_hal=1
+vendor.usb.use_ffs_mtp=1
+sys.usb.mtp.batchcancel=1
 vendor.usb.rndis.func.name=rndis_bam
+
+# lmkd (3/4 GB, zram, multi-gen LRU). Picked from LineageOS trees of
+# 3-4 GB devices: kill_heaviest_task, swap_util_max and
+# swap_free_low_percentage as Motorola's mt6765, exynos9610 and sm6225
+# trees; thrashing limit/decay from the 4 GB tier of xiaomi sm7250, between
+# Motorola's 30 (reloads apps too eagerly) and the default 100; complete
+# stall from Motorola's 3 GB devices, to kill before the UI freezes.
+ro.lmk.kill_heaviest_task=true
+ro.lmk.swap_util_max=90
+ro.lmk.swap_free_low_percentage=20
+ro.lmk.thrashing_limit=55
+ro.lmk.thrashing_limit_decay=35
+ro.lmk.psi_complete_stall_ms=150
 
 # Watchdog
 ro.hw_timeout_multiplier=3
