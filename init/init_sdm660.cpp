@@ -94,6 +94,15 @@ void OverrideMemoryProperties() {
         heaptargetutilization = "0.6";
         heapminfree = "8m";
         heapmaxfree = "16m";
+    } else if (sys.totalram > 2048ull * 1024 * 1024) {
+        // 3 GB devices: the 2 GB growth limits with more free heap after
+        // each GC, so persistent processes such as SystemUI collect less often
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.75";
+        heapminfree = "2m";
+        heapmaxfree = "8m";
     } else {
         // from - phone-xhdpi-2048-dalvik-heap.mk
         heapstartsize = "8m";
