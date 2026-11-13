@@ -12,3 +12,4 @@ Devices:
 * Motorola moto g7 plus (lake): work in progress
 * Motorola moto g6 plus (evert): planned
 * Motorola moto z3 play (beckham): planned
+* Motorola one power (chef): planned
