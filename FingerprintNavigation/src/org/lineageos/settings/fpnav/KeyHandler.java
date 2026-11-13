@@ -30,6 +30,8 @@ import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
 
+import lineageos.providers.LineageSettings;
+
 import org.lineageos.internal.util.ActionUtils;
 
 /**
@@ -82,6 +84,11 @@ public class KeyHandler implements DeviceKeyHandler {
             return event;
         }
 
+        // The gestures are off while the on-screen navigation bar is in use.
+        if (!isNavigationEnabled()) {
+            return null;
+        }
+
         final int action = Settings.Secure.getIntForUser(mResolver, key,
                 Constants.getDefaultAction(key), UserHandle.USER_CURRENT);
 
@@ -94,6 +101,11 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean isFromFingerprintSensor(KeyEvent event) {
         final InputDevice device = InputDevice.getDevice(event.getDeviceId());
         return device != null && Constants.INPUT_DEVICE_NAME.equals(device.getName());
+    }
+
+    private boolean isNavigationEnabled() {
+        return LineageSettings.System.getIntForUser(mResolver,
+                LineageSettings.System.FORCE_SHOW_NAVBAR, 1, UserHandle.USER_CURRENT) == 0;
     }
 
     private boolean hasSetupCompleted() {
