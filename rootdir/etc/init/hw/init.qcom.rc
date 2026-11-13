@@ -442,6 +442,22 @@ on boot
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
 
+    # Keep the previous boot pstore records (kernel console, Android pmsg,
+    # panic dmesg) in /data, since ramoops is overwritten on every boot
+    mkdir /data/vendor/pstore 0750 root log
+    copy /sys/fs/pstore/console-ramoops-0 /data/vendor/pstore/console-ramoops-0
+    copy /sys/fs/pstore/pmsg-ramoops-0 /data/vendor/pstore/pmsg-ramoops-0
+    copy /sys/fs/pstore/dmesg-ramoops-0 /data/vendor/pstore/dmesg-ramoops-0
+    copy /sys/fs/pstore/dmesg-ramoops-1 /data/vendor/pstore/dmesg-ramoops-1
+    chown root log /data/vendor/pstore/console-ramoops-0
+    chown root log /data/vendor/pstore/pmsg-ramoops-0
+    chown root log /data/vendor/pstore/dmesg-ramoops-0
+    chown root log /data/vendor/pstore/dmesg-ramoops-1
+    chmod 0640 /data/vendor/pstore/console-ramoops-0
+    chmod 0640 /data/vendor/pstore/pmsg-ramoops-0
+    chmod 0640 /data/vendor/pstore/dmesg-ramoops-0
+    chmod 0640 /data/vendor/pstore/dmesg-ramoops-1
+
     # Create directory used for dump collection
     mkdir /data/vendor/ssrdump 0770 root system
 
