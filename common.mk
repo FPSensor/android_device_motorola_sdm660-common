@@ -66,6 +66,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
     audio.bluetooth.default
 
+# Blur
+PRODUCT_PACKAGES += \
+    BlurDefault
+
 # Boot control HAL
 ifneq ($(TARGET_USES_OEM_AS_VENDOR),true)
 PRODUCT_PACKAGES += \
