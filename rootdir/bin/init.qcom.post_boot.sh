@@ -2496,9 +2496,9 @@ case "$target" in
         done
         echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
-        # Input boost
-        echo "0:1113600 4:1094400" > /sys/module/cpu_boost/parameters/input_boost_freq
-        echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
+        # Input boost: on 4.19 the cpu-boost knobs live under the cpu subsystem
+        echo "0:1344000 4:1401600" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
+        echo 120 > /sys/devices/system/cpu/cpu_boost/input_boost_ms
 
         # CPU <-> DDR bus DCVS (bw_hwmon), mbps zones from the sdm630 4.4 tuning
         for cpubw in /sys/devices/platform/soc/*cpu-cpu-ddr-bw/devfreq/*cpu-cpu-ddr-bw
