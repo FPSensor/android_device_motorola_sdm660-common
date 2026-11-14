@@ -110,9 +110,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/fsg:/fsg
 
-# Power
-TARGET_USES_INTERACTION_BOOST := true
-
 # Properties
 TARGET_ODM_PROP += $(PLATFORM_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(PLATFORM_PATH)/product.prop
@@ -130,6 +127,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 include device/lineage/sepolicy/libion/sepolicy.mk
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/private
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/public
