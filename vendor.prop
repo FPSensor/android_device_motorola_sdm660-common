@@ -105,7 +105,6 @@ dalvik.vm.image-dex2oat-cpu-set=4,5,6,7
 dalvik.vm.image-dex2oat-threads=4
 
 # Display
-debug.renderengine.backend=skiaglthreaded
 debug.renderengine.blur_algorithm=kawase2
 dev.pm.dyn_samplingrate=1
 ro.hardware.egl=adreno
