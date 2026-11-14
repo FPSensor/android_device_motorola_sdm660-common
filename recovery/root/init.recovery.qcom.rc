@@ -8,3 +8,8 @@ on fs
 
 on init
     setprop sys.usb.configfs 1
+
+on boot
+    # Recovery only starts the default and hal classes, while the QTI boot
+    # control HAL is in early_hal, and update_engine_sideload needs it
+    class_start early_hal
